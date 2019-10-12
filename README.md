@@ -1,11 +1,16 @@
-# LongDivide v1.0.0
-I originally began this project in order to create a division algorithm that could detect repeating decimals, which was done in a fairly simple and compact way.
+# LongDivide (v1.0.1)
+
+Created in October 2019. Latest version v1.0.1 (Oct. 12, 2019)
+
+# Motivation
+
+The original goal was to create a division function that could recognize repeating decimals and display them with an overbar. This was relatively simple to accomplish.
 
 `LongDivide(256, 135)` --> 1.8<span style="text-decoration:overline">962</span>
 
-However, I quickly realized that it is also important to be able to control output formatting (such as the precision), and the overline markup tags prevent normal methods such as val.toFixed(3) from working. So, I also implemented a full formatting system as well.
+However, I quickly realized that it is also important to be able to control output formatting, such as specifying the number of decimal places. Since the output of this function must be a string in order to include HTML tags for the overbar, all the standard formatting options (such as .toFixed) won't work. As a result, I decided to implemented a formatting system into the division function as well, which gives control over digit grouping, precision, and many other things. Every symbol, sign, and notation (such as the syntax for overbar tags) can be customized to anything.
 
-One of the main design goals is for this calculator to be as exact as possible. If the result is only approximate (due to limited number of decimal places set, for example), then it will display an approximation sign (`≈`). Likewise, if there is a repeating pattern, it will show an overbar instead of just cycling the pattern until it hits max precision. All of these things are optional however, and can be disabled if desired.
+LongDivide is designed to be as exact as possible, and will handle large numbers and arbitrary precision without loss. If an exact result is not possible (for example, if the user-set limit on precision is not enough), then the output will be displayed with an approximation sign (`≈`). An overbar will be displayed only when there is a mathematically infinite repeating pattern.
 
 A test environment can be found [here](https://glenwing.github.io/LongDivide/LDTestPage.html).
 
@@ -275,6 +280,10 @@ Examples:
 * `LongDivide(16, 9, {'repeat': false, 'p':4})`: 1.7778
 
 # Versions
+
+### 1.0.1
+
+* Added full support for large numbers without truncation or loss of precision. (Limit of 1000 decimal places for various internal processes, set in the Decimal.js config at the very beginning of LongDivide.js. Can be changed to larger if desired.)
 
 ### 1.0.0
 
