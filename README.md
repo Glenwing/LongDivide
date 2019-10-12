@@ -7,6 +7,8 @@ However, I quickly realized that it is also important to be able to control outp
 
 One of the main design goals is for this calculator to be as exact as possible. If the result is only approximate (due to limited number of decimal places set, for example), then it will display an approximation sign (`≈`). Likewise, if there is a repeating pattern, it will show an overbar instead of just cycling the pattern until it hits max precision. All of these things are optional however, and can be disabled if desired.
 
+A test environment can be found [here](https://glenwing.github.io/LongDivide/LDTestPage.html).
+
 # Dependencies
 
 Requires [Decimal.js](https://github.com/MikeMcl/decimal.js/)
@@ -19,7 +21,7 @@ This performs A / B. Output is a string. The result can have up to 8 decimal pla
 
 In order to gain more control over precision and other aspects, use a third optional argument:
 
-`Output = LongDivide(A, B, precision)` or `LongDivide(A, B, options)` or `LongDivide(A, B, format)`
+`Output = LongDivide(A, B, precision)` or `LongDivide(A, B, format)` or `LongDivide(A, B, options)`
 
 Where
 * `precision` is an integer which simply sets a fixed number of decimal places
@@ -28,18 +30,18 @@ Where
 
 For example:
 
-<b>Using options dictionary:</b>
-
-    X = LongDivide(2560, 1.35, {'p': 3} ) // Performs 2560/1.35, formatted to 3 decimals of precision
-    Y = LongDivide(2560, 1.35, {'p': 2, 'thousands': ','} ) // Performs 2560/1.35, formatted to 2 decimals, with a comma for digit grouping
-
-X: '1896.<span style="text-decoration:overline">296</span>'<br>
-Y: '≈1,896.30'
-
 <b>Using format string:</b>
 
     X = LongDivide(2560, 1.35, '0.000') // Performs 2560/1.35, formatted to 3 decimals of precision
     Y = LongDivide(2560, 1.35, ',0.00') // Performs 2560/1.35, formatted to 2 decimals, with a comma for digit grouping
+
+X: '1896.<span style="text-decoration:overline">296</span>'<br>
+Y: '≈1,896.30'
+
+<b>Using options dictionary:</b>
+
+    X = LongDivide(2560, 1.35, {'p': 3} ) // Performs 2560/1.35, formatted to 3 decimals of precision
+    Y = LongDivide(2560, 1.35, {'p': 2, 'thousands': ','} ) // Performs 2560/1.35, formatted to 2 decimals, with a comma for digit grouping
 
 X: '1896.<span style="text-decoration:overline">296</span>'<br>
 Y: '≈1,896.30'
@@ -125,9 +127,9 @@ Here is the syntax for the format string:
 
 # Options
 
-Here are the valid options:
+If using an options dictionary, here are the valid entries:
 
-### LongDivide(A, B, {
+### output = LongDivide(A, B, {
 
 ### 'p': val, // integer
 
@@ -237,13 +239,13 @@ Examples:
 
 By default, it is set to the HTML/CSS overline tag: `'<span style="text-decoration:overline">'`
 
-It can be changed to other tags depending on what environment the output is intended for; for example to `'{{overline|'` (Wikipedia markup) or simply `'('` for ASCII-only environments where repeating decimals are represented with parentheses.
+It can be changed to other tags depending on what environment the output is intended for; for example to `'\{\{overline|'` (Wikipedia markup) or simply `'('` for ASCII-only environments where repeating decimals are represented with parentheses.
 
 ### 'OL_close': str, // string; default HTML/CSS overline
 
 `str` is placed after the repeating portion of a repeating decimal.
 
-By default, it is set to the HTML/CSS tag: `'<span>'`
+By default, it is set to the HTML/CSS tag: `'</span>'`
 
 See OL_open description.
 
