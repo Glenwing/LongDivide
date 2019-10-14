@@ -152,9 +152,9 @@ Examples:
 * `LongDivide(1, 32, {'p': 2})`: ≈0.03
 
 For repeating patterns, the pattern will be cycled or rounded to obtain the requested number of places:
-* `LongDivide(256, 135)`: 1.8<span style="text-decoration:overline">962</span> (natural output)
+* `LongDivide(256, 135)`: 1.8<span style="text-decoration:overline">~~962~~</span> (natural output)
 * `LongDivide(256, 135, {'p': 2})`: ≈1.90 (output is rounded to meet specified precision)
-* `LongDivide(256, 135, {'p': 5})`: 1.89<span style="text-decoration:overline">629</span> (pattern is cycled to meet specified precision)
+* `LongDivide(256, 135, {'p': 5})`: 1.89<span style="text-decoration:overline">~~629~~</span> (pattern is cycled to meet specified precision)
 
 
 ### 'p_max': val, // integer; default 8
