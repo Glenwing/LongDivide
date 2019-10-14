@@ -1,6 +1,16 @@
-# LongDivide (v1.0.1)
+# LongDivide (v1.0.2)
 
-Created in October 2019. Latest version v1.0.1 (Oct. 12, 2019)
+Created in October 2019. Latest version v1.0.2 (Oct. 14, 2019)
+
+# Basic Description
+
+Performs the mathematical division operation. Can detect and display repeating decimal patterns. Formats output to a specified number of decimal places, and can implement other optional formatting, such as adding commas, forcing signs, and more.
+
+A test environment can be found [here](https://glenwing.github.io/LongDivide/LDTestPage.html).
+
+# Dependencies
+
+Requires [Decimal.js](https://github.com/MikeMcl/decimal.js/)
 
 # Motivation
 
@@ -11,12 +21,6 @@ The original goal was to create a division function that could recognize repeati
 However, I quickly realized that it is also important to be able to control output formatting, such as specifying the number of decimal places. Since the output of this function must be a string in order to include HTML tags for the overbar, all the standard formatting options (such as .toFixed) won't work. As a result, I decided to implemented a formatting system into the division function as well, which gives control over digit grouping, precision, and many other things. Every symbol, sign, and notation (such as the syntax for overbar tags) can be customized to anything.
 
 LongDivide is designed to be as exact as possible, and will handle large numbers and arbitrary precision without loss. If an exact result is not possible (for example, if the user-set limit on precision is not enough), then the output will be displayed with an approximation sign (`≈`). An overbar will be displayed only when there is a mathematically infinite repeating pattern.
-
-A test environment can be found [here](https://glenwing.github.io/LongDivide/LDTestPage.html).
-
-# Dependencies
-
-Requires [Decimal.js](https://github.com/MikeMcl/decimal.js/)
 
 # Usage
 
@@ -196,6 +200,14 @@ Examples:
 * `LongDivide(66, 64, {'thousandths': '\u202f'})`: 1.031&#x202f;25
     * ('\u202f' is a non-breaking thin space)
 
+### 'orphans': val, // boolean; default false
+
+This takes effect when thousandths separators are enabled, and the number of decimal digits is one more than a multiple of 3. In this situation, it is often preferable to have a group of 4 digits at the end rather than an "orphan" digit. The 'orphans' option controls this behavior. If set to true, an orphan digit will be allowed.
+
+Examples:
+* `LongDivide(0.1234567, 1, {'thousandths': '\u202f', 'orphans:' false})`: 0.123&#x202f;4567
+* `LongDivide(0.1234567, 1, {'thousandths': '\u202f', 'orphans:' true})`: 0.123&#x202f;456&#x202f;7
+
 ### 'decimal': str, // string; default '.'
 
 Uses `str` as the character for the decimal point.
@@ -281,11 +293,15 @@ Examples:
 
 # Versions
 
-### 1.0.1
+### 1.0.2 (Oct. 14, 2019)
+
+* When using thousandths separators, conventionally it is preferrable to have a trailing group of 4 rather than having an "orphan" digit at the end (i.e. 0.123&#x202f;4567 rather than 0.123&#x202f;456&#x202f;7). To accommodate this, an 'orphans' option has been added, which will configure this behavior.
+
+### 1.0.1 (Oct. 12, 2019)
 
 * Added full support for large numbers without truncation or loss of precision. (Limit of 1000 decimal places for various internal processes, set in the Decimal.js config at the very beginning of LongDivide.js. Can be changed to larger if desired.)
 
-### 1.0.0
+### 1.0.0 (Oct. 12, 2019)
 
 Initial version
 
