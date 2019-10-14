@@ -14,9 +14,11 @@ Requires [Decimal.js](https://github.com/MikeMcl/decimal.js/)
 
 # Motivation
 
-The original goal was to create a division function that could recognize repeating decimals and display them with an overbar. This was relatively simple to accomplish.
+The original goal was to create a division function that could recognize repeating decimals and display them with an overline. This was relatively simple to accomplish.
 
-`LongDivide(256, 135)` --> 1.8<span style="text-decoration:overline">962</span>
+`LongDivide(256, 135)` --> 1.8~~962~~ `1.8<span style="text-decoration:overline;">962</span>`
+
+(Note: strikethrough is used throughout this readme to represent an overline, since Github does not display CSS overlines for whatever reason).
 
 However, I quickly realized that it is also important to be able to control output formatting, such as specifying the number of decimal places. Since the output of this function must be a string in order to include HTML tags for the overbar, all the standard formatting options (such as .toFixed) won't work. As a result, I decided to implemented a formatting system into the division function as well, which gives control over digit grouping, precision, and many other things. Every symbol, sign, and notation (such as the syntax for overbar tags) can be customized to anything.
 
@@ -44,16 +46,16 @@ For example:
     X = LongDivide(2560, 1.35, '0.000') // Performs 2560/1.35, formatted to 3 decimals of precision
     Y = LongDivide(2560, 1.35, ',0.00') // Performs 2560/1.35, formatted to 2 decimals, with a comma for digit grouping
 
-X: '1896.<span style="text-decoration:overline">296</span>'<br>
-Y: '≈1,896.30'
+X: 1896.<span style="text-decoration:overline">~~296~~</span> `'1896.<span style="text-decoration:overline;">296</span>'`<br>
+Y: ≈1,896.30 `&approx;1,896.30`
 
 <b>Using options dictionary:</b>
 
     X = LongDivide(2560, 1.35, {'p': 3} ) // Performs 2560/1.35, formatted to 3 decimals of precision
     Y = LongDivide(2560, 1.35, {'p': 2, 'thousands': ','} ) // Performs 2560/1.35, formatted to 2 decimals, with a comma for digit grouping
 
-X: '1896.<span style="text-decoration:overline">296</span>'<br>
-Y: '≈1,896.30'
+X: 1896.<span style="text-decoration:overline">~~296~~</span> `'1896.<span style="text-decoration:overline;">296</span>'`<br>
+Y: ≈1,896.30 `'&approx;1,896.30'`
 
 # Format
 
@@ -279,8 +281,8 @@ Examples:
 If set to true, single-digit repeating patterns will be doubled.
 
 Examples:
-* `LongDivide(4, 3)`: 1.<span style='text-decoration:overline'>33</span>
-* `LongDivide(4, 3, {'2_singles': false})`: 1.<span style='text-decoration:overline'>3</span>
+* `LongDivide(4, 3)`: 1.<span style='text-decoration:overline'>~~33~~</span>
+* `LongDivide(4, 3, {'2_singles': false})`: 1.<span style='text-decoration:overline'>~~3~~</span>
 
 ### 'repeat'
 
@@ -288,7 +290,7 @@ If set to false, repeating decimal detection/output will be disabled.
 
 Examples:
 
-* `LongDivide(16, 9)`: 1.<span style='text-decoration:overline'>77</span>
+* `LongDivide(16, 9)`: 1.<span style='text-decoration:overline'>~~77~~</span>
 * `LongDivide(16, 9, {'repeat': false, 'p':4})`: 1.7778
 
 # Versions
