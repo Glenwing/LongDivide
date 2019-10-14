@@ -1,18 +1,32 @@
-# LongDivide
+# LongDivide.js
 
 Created in October 2019. Latest version v1.1.0 (Oct. 14, 2019)
 
-# Basic Description
+## Basic Description
 
 Performs the mathematical division operation. Can detect and display repeating decimal patterns. Formats output to a specified number of decimal places, and can implement other optional formatting, such as adding commas, forcing signs, and more.
 
 A test environment can be found [here](https://glenwing.github.io/LongDivide/LDTestPage.html).
 
-# Dependencies
+## Dependencies
 
-Requires [Decimal.js](https://github.com/MikeMcl/decimal.js/)
+Requires [decimal.js](https://github.com/MikeMcl/decimal.js/)
 
-# Motivation
+## Install
+
+To include LongDivide.js in your project:
+
+You can install it with npm: ([package](https://www.npmjs.com/package/longdivide.js))
+* Install npm (https://www.npmjs.com/get-npm)
+* Open a command line window in your project's root directory (in Windows, open your project's top level folder in Windows Explorer, hold down shift, and right click a blank spot in the folder, then click "Open PowerShell window here")
+* In the command line, enter (without quotes) "npm install longdivide.js"
+
+Or, if you are a noob like me and don't want to mess with any of that, just copy the source (LongDivide.js) into your project directory, and include it in your page.
+`<script src="LongDivide.js"></script>`
+
+Keep in mind you will also need to include [decimal.js](https://github.com/MikeMcl/decimal.js/).
+
+## Motivation
 
 The original goal was to create a division function that could recognize repeating decimals and display them with an overline. This was relatively simple to accomplish.
 
@@ -24,7 +38,7 @@ However, I quickly realized that it is also important to be able to control outp
 
 LongDivide is designed to be as exact as possible, and will handle large numbers and arbitrary precision without loss. If an exact result is not possible (for example, if the user-set limit on precision is not enough), then the output will be displayed with an approximation sign (`≈`). An overbar will be displayed only when there is a mathematically infinite repeating pattern.
 
-# Usage
+## Usage
 
 `Output = LongDivide(A, B)`
 
@@ -57,7 +71,7 @@ Y: ≈1,896.30 `&approx;1,896.30`
 X: 1896.<span style="text-decoration:overline">~~296~~</span> `'1896.<span style="text-decoration:overline;">296</span>'`<br>
 Y: ≈1,896.30 `'&approx;1,896.30'`
 
-# Format
+## Format
 
 Here is the syntax for the format string:
 
@@ -136,7 +150,7 @@ Here is the syntax for the format string:
   </tr>
 </table>
 
-# Options
+## Options
 
 If using an options dictionary, here are the valid entries:
 
@@ -293,7 +307,7 @@ Examples:
 * `LongDivide(16, 9)`: 1.<span style='text-decoration:overline'>~~77~~</span>
 * `LongDivide(16, 9, {'repeat': false, 'p':4})`: 1.7778
 
-# Versions
+## Versions
 
 ### 1.1.0 (Oct. 14, 2019)
 
@@ -307,7 +321,7 @@ Examples:
 
 Initial version
 
-# License
+## License
 
 The following text is included here as required by the MIT license of LongDivide.js:
 
