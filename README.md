@@ -1,6 +1,6 @@
 # LongDivide
 
-Created in October 2019. Latest version v1.0.2 (Oct. 14, 2019)
+Created in October 2019. Latest version v1.1.0 (Oct. 14, 2019)
 
 # Basic Description
 
@@ -295,7 +295,7 @@ Examples:
 
 # Versions
 
-### 1.0.2 (Oct. 14, 2019)
+### 1.1.0 (Oct. 14, 2019)
 
 * When using thousandths separators, conventionally it is preferrable to have a trailing group of 4 rather than having an "orphan" digit at the end (i.e. 0.123&#x202f;4567 rather than 0.123&#x202f;456&#x202f;7). To accommodate this, an 'orphans' option has been added, which will configure this behavior.
 

@@ -3,8 +3,8 @@
 LongDivide.js
 Created by Glenwing (https://github.com/Glenwing)
 
-Version: 1.0.2
-October 12, 2019
+Version: 1.1.0
+October 14, 2019
 
 */
 
@@ -20,8 +20,9 @@ function LongDivide(A, B, options) {
     //console.log('Decimals:\nA:', A.toFixed(A.dp()).toString(), '(' + A.toFixed(A.dp()).toString().length + ')', '\nB', B.toFixed(B.dp()).toString(), '(' + B.toFixed(B.dp()).toString().length + ')');
     //console.log('Decimal Places:\nA:', A.dp(), '\nB:', B.dp());
 
-    if (typeof(options) === 'number') { // If 3rd argument is a number rather than a dictionary, use it as the P_Max value
+    if (typeof(options) === 'number') { // If 3rd argument is a number rather than a dictionary, use it as the P_Max and P_Min value
         var P_Max = options;
+        var P_Min = options;
     }
     else {
         if (typeof(options) === 'string') { options = LongDivide.parseFormatString(options); }
