@@ -28,7 +28,7 @@ LongDivide is designed to be as exact as possible, and will handle large numbers
 
 `Output = LongDivide(A, B)`
 
-This performs A / B. Output is a string. The result can have up to 8 decimal places. Longer results will be rounded.
+This performs A / B. Output is a string. Up to 8 decimal places will be displayed by default, longer results will be rounded.
 
 In order to gain more control over precision and other aspects, use a third optional argument:
 
