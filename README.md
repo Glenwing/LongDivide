@@ -18,7 +18,7 @@ The original goal was to create a division function that could recognize repeati
 
 `LongDivide(256, 135)` --> 1.8~~962~~ `1.8<span style="text-decoration:overline;">962</span>`
 
-(Note: strikethrough is used throughout this readme to represent an overline, since Github does not display CSS overlines for whatever reason).
+(Note: strikethrough is used throughout this readme to represent an overline, since Github markdown does not allow CSS).
 
 However, I quickly realized that it is also important to be able to control output formatting, such as specifying the number of decimal places. Since the output of this function must be a string in order to include HTML tags for the overbar, all the standard formatting options (such as .toFixed) won't work. As a result, I decided to implemented a formatting system into the division function as well, which gives control over digit grouping, precision, and many other things. Every symbol, sign, and notation (such as the syntax for overbar tags) can be customized to anything.
 
