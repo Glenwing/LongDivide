@@ -1,4 +1,4 @@
-# LongDivide (v1.0.2)
+# LongDivide
 
 Created in October 2019. Latest version v1.0.2 (Oct. 14, 2019)
 
@@ -202,7 +202,7 @@ Examples:
 * `LongDivide(66, 64, {'thousandths': '\u202f'})`: 1.031&#x202f;25
     * ('\u202f' is a non-breaking thin space)
 
-### 'orphans': val, // boolean; default false
+### 'orphans': x, // boolean; default false
 
 This takes effect when thousandths separators are enabled, and the number of decimal digits is one more than a multiple of 3. In this situation, it is often preferable to have a group of 4 digits at the end rather than an "orphan" digit. The 'orphans' option controls this behavior. If set to true, an orphan digit will be allowed.
 
@@ -268,7 +268,7 @@ By default, it is set to the HTML/CSS tag: `'</span>'`
 
 See OL_open description.
 
-### 'si': val, // boolean; default false
+### 'si': x, // boolean; default false
 
 If set to true, output will use SI prefixes.
 
@@ -276,7 +276,7 @@ Examples:
 * `LongDivide(2000, 1, {'si': true})`: 2&nbsp;k
 * `LongDivide(2000000, 1, {'si': true}) + 'Hz'`: 2&nbsp;MHz
 
-### '2_singles: val, // boolean; default true
+### '2_singles': x, // boolean; default true
 
 If set to true, single-digit repeating patterns will be doubled.
 
@@ -284,7 +284,7 @@ Examples:
 * `LongDivide(4, 3)`: 1.<span style='text-decoration:overline'>~~33~~</span>
 * `LongDivide(4, 3, {'2_singles': false})`: 1.<span style='text-decoration:overline'>~~3~~</span>
 
-### 'repeat'
+### 'repeat': x, // boolean; default true
 
 If set to false, repeating decimal detection/output will be disabled.
 
