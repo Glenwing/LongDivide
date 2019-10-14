@@ -309,7 +309,7 @@ Initial version
 
 # License
 
-The following text is included here as required by the MIT license of Numeral.js:
+The following text is included here as required by the MIT license of LongDivide.js:
 
 LongDivide.js is freely distributable under the terms of the MIT license.
 
