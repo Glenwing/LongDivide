@@ -9,8 +9,8 @@ October 12, 2019
 */
 
 function LongDivide(A, B, options) {
-    Decimal.set( {'precision': 1000 } )
     //console.log('BEGIN:', A, '÷', B)
+    try { Decimal.set({'precision': 1000 }) } catch (ReferenceError) { console.log('Error in function LongDivide(): Decimal.js library not detected. LongDivide.js requires Decimal.js in order to operate. (https://github.com/MikeMcl/decimal.js)'); return 'Error'; }
     if (A == '' || B == '') { return ''; }
     if ( Number.isNaN(parseFloat(A)) || Number.isNaN(parseFloat(B)) || !Number.isFinite(parseFloat(A)) || !Number.isFinite(parseFloat(B)) || !Number.isFinite(parseFloat(A)/parseFloat(B)) || Number.isNaN(parseFloat(A)/parseFloat(B)) ) { console.log('Error in function LongDivide(): One or both inputs is NaN or Infinity, or there is a division by zero. Function aborted.'); return 'Error'; }
 
