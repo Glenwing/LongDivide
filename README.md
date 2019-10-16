@@ -301,7 +301,7 @@ Examples:
 Examples:
 
 | A, B, options             | Output       | Comment                                                    |
-|---------------------------|--------------|------------------------------------------------------------|
+|---------------------------|-------------:|------------------------------------------------------------|
 | `-1, 8`                   | &minus;0.125 | Default output, uses `&minus;` sign (U+2212)               |
 | `-1, 8, {'minus': '-' }`  | -0.125       | Sets the standard hyphen-minus character as the minus sign |
 | `-1, 8, {'minus': '()' }` | (0.125)      | Uses parentheses to indicate negative numbers              |
