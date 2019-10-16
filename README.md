@@ -1,6 +1,6 @@
 # LongDivide.js
 
-Created in October 2019. Latest version v1.1.0 (Oct. 14, 2019)
+Created in October 2019. Latest version: 1.2.0 (Oct. 16, 2019)
 
 ## Basic Description
 
@@ -142,10 +142,17 @@ Here is the syntax for the format string:
     <td>Adding exclamation mark removes '≈' symbol from non-exact results</td>
   </tr>
   <tr>
+    <td align="center">Exponential Form</td>
+    <td align="center">1000&nbsp;/&nbsp;1</td>
+    <td align="center">'0.00 e'<br>'0.00 ex'<br>'0.00 ed'</td>
+    <td align="center">1.00e+3<br>1.00&nbsp;&times;&nbsp;10<sup>3</sup><br>1.00&nbsp;&#x2219;&nbsp;10<sup>3</sup></td>
+    <td>Outputs in exponential form</td>
+  </tr>
+  <tr>
     <td align="center">SI Prefixes</td>
     <td align="center">1&nbsp;/&nbsp;8</td>
     <td align="center">'0.00 si'</td>
-    <td align="center">125 m</td>
+    <td align="center">125&nbsp;m</td>
     <td>Adds SI prefixes to output</td>
   </tr>
 </table>
@@ -282,6 +289,18 @@ By default, it is set to the HTML/CSS tag: `'</span>'`
 
 See OL_open description.
 
+### 'exp': str, // string; default '' (blank)
+
+Enables exponential notation if set to any of the following:
+* `'exp': e` uses standard 'e' notation: result of 1000 is output as 1.00e+3
+* `'exp': ex` uses scientific notation with a multiplication sign: 1000 -> 1.00&nbsp;&times;&nbsp;10<sup>3</sup>
+* `'exp': ed` same as ex, but using a multiplication dot instead: 1000 -> 1.00&nbsp;&#x2219;&nbsp;10<sup>3</sup>
+* `'exp': custom` allows the user to specify four parameters to make their own exponential formatting:
+  * `'exp_open': str,` // string to be placed before the exponential power (such as e, E, superscript opening tag, etc.)
+  * `'exp_close': str,` // string to be placed after the exponential power (such as &lt;/sup&gt; tag)
+  * `'exp_minus': str,` // string to be placed before the exponential power if it is negative; defaults to the same as the general 'minus' option if left undefined
+  * `'exp_plus': str,` // string to be placed before the exponential power if it is positive; defaults to the same as the general 'plus' option if left undefined
+
 ### 'si': x, // boolean; default false
 
 If set to true, output will use SI prefixes.
@@ -308,6 +327,13 @@ Examples:
 * `LongDivide(16, 9, {'repeat': false, 'p':4})`: 1.7778
 
 ## Versions
+
+### 1.2.0 (Oct. 16, 2019)
+
+* Added exponential form option
+* Fixed incorrect handling when numbers are rounded such that the integer portion is increased (i.e. 5.99 with p_max = 1 should output 6.0, but instead would output 5.10)
+* Fixed incorrect comparison in format parsing function (if typeof(...) === string instead of 'string')
+* Fixed missing check for the case where no options are given
 
 ### 1.1.0 (Oct. 14, 2019)
 
