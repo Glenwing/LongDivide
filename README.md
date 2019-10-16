@@ -71,6 +71,8 @@ Y: ≈1,896.30 `&approx;1,896.30`
 X: 1896.<span style="text-decoration:overline">~~296~~</span> `'1896.<span style="text-decoration:overline;">296</span>'`<br>
 Y: ≈1,896.30 `'&approx;1,896.30'`
 
+It requires much more typing to accomplish the same thing in this example, but the options dictionary also has many additional customization options that are not possible with just the format string.
+
 ## Precision Argument
 
 ### Output = LongDivide(A, B, Precision)
