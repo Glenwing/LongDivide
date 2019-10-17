@@ -1,6 +1,6 @@
 {
   "name": "longdivide.js",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Long division algorithm with repeating decimal detection and output formatting",
   "main": "LongDivide.js",
   "scripts": {

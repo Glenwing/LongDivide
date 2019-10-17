@@ -1,6 +1,6 @@
 # LongDivide.js
 
-Created in October 2019. Latest version: 1.2.1 (Oct. 16, 2019)
+Created in October 2019. Latest version: 1.2.2 (Oct. 17, 2019)
 
 ## Basic Description
 
@@ -139,7 +139,7 @@ The **Format string** can be used as the third argument to easily specify some c
   </tr>
   <tr>
     <td align="center">Use&nbsp;Real&nbsp;Minus&nbsp;Sign</td>
-    <td align="center">1&nbsp;/&nbsp;-8</td>
+    <td align="center">-1&nbsp;/&nbsp;8</td>
     <td align="right">'0.000'<br>'-0.000'</td>
     <td align="right">-0.125<br>−0.125</td>
     <td>Adding "-" to the format enables &amp;minus; for negative numbers (instead of hyphen-minus)</td>
@@ -153,7 +153,7 @@ The **Format string** can be used as the third argument to easily specify some c
   </tr>
   <tr>
     <td align="center">Parentheses&nbsp;for&nbsp;Negative</td>
-    <td align="center">1&nbsp;/&nbsp;-8</td>
+    <td align="center">-1&nbsp;/&nbsp;8</td>
     <td align="right">'(0.000)'</td>
     <td align="right">(0.125)</td>
     <td>Encloses negative values in parentheses</td>
@@ -409,6 +409,11 @@ Examples:
 | `16, 9, {'repeat': false, 'p':4}` | 1.7778   | Disables repeating decimal detection |
 
 ## Versions
+
+### 1.2.2 (Oct. 17, 2019)
+
+* Fixed bug with exponential notation, where rounded numbers would not have the exponent adjusted (for example 9,999 (9.999e+3) with p_max of 2 applied would result in ≈10.00e+3 instead of ≈1.00e+4)
+* Improved efficiency of exponential notation by replacing the log function (highly resource-intensive when inputs are large) to an alternate method of determining the correct power using Decimal.js precision/decimalPlaces methods.
 
 ### 1.2.1 (Oct. 16, 2019)
 
