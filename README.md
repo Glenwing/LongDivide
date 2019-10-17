@@ -1,6 +1,6 @@
 # LongDivide.js
 
-Created in October 2019. Latest version: 1.2.2 (Oct. 17, 2019)
+Created in October 2019. Latest version: 1.2.3 (Oct. 17, 2019)
 
 ## Basic Description
 
@@ -409,6 +409,10 @@ Examples:
 | `16, 9, {'repeat': false, 'p':4}` | 1.7778   | Disables repeating decimal detection |
 
 ## Versions
+
+### 1.2.3 (Oct. 17, 2019)
+
+* Fixed bug with exponential power calculation (resulting from trailing zeros in integers not being counted as digits by default in decimal.js's precision method)
 
 ### 1.2.2 (Oct. 17, 2019)
 

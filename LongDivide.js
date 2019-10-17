@@ -3,8 +3,8 @@
 LongDivide.js
 Created by Glenwing (https://github.com/Glenwing)
 
-Version: 1.2.2
-October 16, 2019
+Version: 1.2.3
+October 17, 2019
 
 */
 
@@ -247,7 +247,7 @@ function LongDivide(A, B, options) {
 
         temp = A.div(B).abs();
         if (temp > 0 && (temp < 1 || temp >= 10)) { // Check if numbers need to be multiplied for exponential notation
-            Exp_power = new Decimal(temp.precision() - temp.decimalPlaces() - 1);
+            Exp_power = new Decimal(temp.precision(true) - temp.decimalPlaces() - 1);
         }
         if (Exp_power.isNegative()) {
             A = A.times(Decimal.pow(10, Exp_power.abs())); Exp_power = Exp_power.abs();
