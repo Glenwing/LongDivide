@@ -1,6 +1,6 @@
 # LongDivide.js
 
-Created in October 2019. Latest version: 1.2.3 (Oct. 17, 2019)
+Created in October 2019. Latest version: 1.3.0 (Oct. 21, 2019)
 
 ## Basic Description
 
@@ -408,7 +408,64 @@ Examples:
 | `16, 9`                           | 1.~~77~~ | Default output (`'repeat': true`)    |
 | `16, 9, {'repeat': false, 'p':4}` | 1.7778   | Disables repeating decimal detection |
 
+## Changing Default Settings and Other Internal Properties
+
+Default options can be changed by setting the properties of the LongDivide() prototype. This can also be used to disable Error or Warning messages in the console, and changing the output of the function when an error is encountered (by default, it outputs the string `'Error'`).
+
+For example:
+```javascript
+x = LongDivide(1, 4); // '0.25'
+x = LongDivide(1, 4, {'p_min': 3}); // '0.250';
+
+// If you plan on using {'p_min': 3} all over the place, it may be convenient to change the default, so it doesn't have to specified every time the function is called.
+
+LongDivide.p_min = 3; // Changes the default p_min to 3
+x = LongDivide(1, 4); // '0.250'
+x = LongDivide(1, 2); // '0.500'
+```
+
+The available properties (and their default values) are as follows:
+
+```javascript
+LongDivide.p_max = 8;
+LongDivide.p_min = 0;
+LongDivide.leading = 1;
+
+LongDivide.decimal = '.';
+LongDivide.thousands = '';
+LongDivide.thousandths = '';
+LongDivide.orphans = false;
+LongDivide.minus = '\u2212'; // Minus sign character (not hyphen-minus)
+LongDivide.plus = '';
+LongDivide.approx = '\u2248'; // Approximation sign character (double squiggly: ≈)
+LongDivide.currency = '';
+
+LongDivide.OL_open = '<span style="text-decoration:overline;">';
+LongDivide.OL_close = '</span>';
+LongDivide.exp = '';
+LongDivide.exp_open = 'e';
+LongDivide.exp_close = '';
+LongDivide.exp_minus = LongDivide.minus;
+LongDivide.exp_plus = LongDivide.plus;
+
+LongDivide.si = false;
+LongDivide.two_singles = true; // Note that this is different from the options name ('2_singles') since property names cannot start with a digit
+LongDivide.repeat = true;
+
+LongDivide.errors = true; // Set false to suppress error messages from being printed to the console
+LongDivide.warnings = true; // Set false to suppress warning messages from being printed to the console
+LongDivide.error_output = 'Error'; // This is the value that will be returned from the function when an error is encountered. By default it is the string 'Error'. Other suggestions include '' (blank string) or NaN.
+```
+
 ## Versions
+
+### 1.3.0 (Oct. 21, 2019)
+
+* Minified version added to repository (LongDivide.min.js)
+* In addition to strings and numbers, LongDivide now accepts Decimal inputs
+* If the `thousands` option is set to `'.'`, the `decimal` option will automatically be set to `','` without needing to be specified.
+* Default options can now be changed by calling options as properties of LongDivide (i.e. `LongDivide.p_max = 3` sets the p_max option to 3 by default, so it doesn't have to specified every time the function is called). LongDivide's Error and Warning messages in the console can also be disabled this way.
+* Fixed bug in which setting p_max to zero would cause digit grouping and currency symbols to be ignored, as well as negative parentheses to be handled incorrectly
 
 ### 1.2.3 (Oct. 17, 2019)
 

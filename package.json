@@ -1,8 +1,8 @@
 {
   "name": "longdivide.js",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "description": "Long division algorithm with repeating decimal detection and output formatting",
-  "main": "LongDivide.js",
+  "main": "LongDivide.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
