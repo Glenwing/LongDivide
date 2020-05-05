@@ -1,6 +1,6 @@
 # LongDivide.js
 
-Created in October 2019. Latest version: 1.3.0 (Oct. 21, 2019)
+Created in October 2019. Latest version: 1.3.1 (May 4, 2020)
 
 ## Basic Description
 
@@ -385,6 +385,17 @@ Examples:
 | `2000, 1, {'si': true}`                                | 2 k      |                                    |
 | `LongDivide(2000, 0.001, {'si': true, 'p': 2}) + 'Hz'` | 2.00 MHz | Example attaching units at the end |
 
+### 'micro': str, // string; default '\u005B' (&mu;)
+
+Sets the character that will be used for the SI prefix Micro (10<sup>&minus;6</sup>).
+
+Examples:
+
+| A, B, options                                          | Output   | Comment                            |
+|--------------------------------------------------------|----------|------------------------------------|
+| `1, 20000, {'si': true}`                               | 50 µ     | Default output                     |
+| `1, 20000, {'micro': u}`                               | 50 u     | Using letter u if unicode characters are not supported or desired |
+
 ### '2_singles': x, // boolean; default true
 
 If set to `true`, single-digit repeating patterns will be doubled (as long as it does not exceed `p_max`).
@@ -439,6 +450,7 @@ LongDivide.minus = '\u2212'; // Minus sign character (not hyphen-minus)
 LongDivide.plus = '';
 LongDivide.approx = '\u2248'; // Approximation sign character (double squiggly: ≈)
 LongDivide.currency = '';
+LongDivide.micro = '\u00B5'; // Greek letter mu (µ)
 
 LongDivide.OL_open = '<span style="text-decoration:overline;">';
 LongDivide.OL_close = '</span>';
@@ -458,6 +470,12 @@ LongDivide.error_output = 'Error'; // This is the value that will be returned fr
 ```
 
 ## Versions
+
+### 1.3.1 (May 4, 2020)
+
+* Changed symbol for Micro SI prefix from `&mu;` (which assumed HTML output) to unicode entity for that character `U+00B5`.
+* Added an option for changing the Micro symbol to a different character (such as `u`) to allow usage in environments with limited character sets
+* Removed evals used in creating warning/error console statements, same functionality achieved using `console.log.apply()`.
 
 ### 1.3.0 (Oct. 21, 2019)
 
