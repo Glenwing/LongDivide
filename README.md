@@ -385,7 +385,7 @@ Examples:
 | `2000, 1, {'si': true}`                                | 2 k      |                                    |
 | `LongDivide(2000, 0.001, {'si': true, 'p': 2}) + 'Hz'` | 2.00 MHz | Example attaching units at the end |
 
-### 'micro': str, // string; default '\u005B' (&mu;)
+### 'micro': str, // string; default '\u00B5' (&mu;)
 
 Sets the character that will be used for the SI prefix Micro (10<sup>&minus;6</sup>).
 
